@@ -19,8 +19,8 @@ public class MinHeap {
     }
     public void insert(int value){
         if(currentSize == 0){
-            heapArray[currentSize + 1] = value;
-            currentSize = 2;
+            heapArray[++currentSize] = value;
+            currentSize++;
         }
         else{
             heapArray[currentSize++] = value;
@@ -36,8 +36,7 @@ public class MinHeap {
     }
     public int extractMin(){
         int min = heapArray[1];
-        currentSize--;
-        heapArray[1] = heapArray[currentSize];
+        heapArray[1] = heapArray[--currentSize];
         heapArray[currentSize] = 0;
         sinkDown(1);
         return min;
